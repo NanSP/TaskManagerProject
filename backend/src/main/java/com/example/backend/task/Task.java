@@ -1,9 +1,17 @@
 package com.example.backend.task;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Table(name = "task")
 @Entity(name = "task")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Task {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

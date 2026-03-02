@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.task.Task;
 import com.example.backend.task.TaskRepository;
+import com.example.backend.task.TaskResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,9 @@ public class TaskController {
     private TaskRepository repository;
 
     @GetMapping
-    public List<Task> getAll(){
+    public List<TaskResponseDTO> getAll(){
 
-        List<Task> taskList = repository.findAll();
+        List<TaskResponseDTO> taskList = repository.findAll().stream().map(TaskResponseDTO::new).toList();
         return taskList;
     }
 }
