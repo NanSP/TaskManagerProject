@@ -1,6 +1,7 @@
 export interface TaskData {
-    id: number;
+    id?: number;
     titulo: string;
     descricao: string;
     concluido: boolean;
+    projectId: number;
 }
