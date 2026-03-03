@@ -1,5 +1,13 @@
 # Task Manager Project
 
+[![Java](https://img.shields.io/badge/Java-21%2B-blue)](https://www.java.com/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1%2B-brightgreen)](https://spring.io/projects/spring-boot)
+[![Maven](https://img.shields.io/badge/Maven-3.8%2B-red)](https://maven.apache.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14%2B-blue)](https://www.postgresql.org/)
+[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![React Query](https://img.shields.io/badge/React%20Query-5.90-orange)](https://tanstack.com/query)
+
 Este repositório serve como um ambiente de aprendizado para tecnologias modernas de desenvolvimento web, integrando um backend em Java/Spring Boot com um frontend em React/TypeScript.
 
 ## 🧱 Estrutura do Projeto
@@ -18,12 +26,12 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
 
 | Camada | Tecnologias | Observações |
 |--------|-------------|-------------|
-| Backend | Java 21, Spring Boot, Spring Data JPA, Flyway, PostgreSQL | Projeto Maven configurado para perfil `dev` com conexão local |
+| Backend | Java 21, Spring Boot, Spring Data JPA, Flyway, PostgreSQL, Maven | Projeto Maven configurado para perfil `dev` com conexão local; aprende-se a estruturar builds e dependências via Maven |
 | Frontend | React 19, TypeScript, Vite, React Query, Axios | Linters configurados (ESLint), foco em hooks e componentes funcionais |
 
 ## 🚀 Executando o Projeto
 
-1. **Banco de dados**: crie um banco PostgreSQL `db_taskmanager` e ajuste as credenciais em `backend/src/main/resources/application-dev.properties`.
+1. **Banco de dados**: crie um banco PostgreSQL `db_taskmanager` (PostgreSQL 14+); as migrações de esquema e dados ficam em `backend/src/main/resources/db/migration/` e as credenciais são ajustadas em `backend/src/main/resources/application-dev.properties`.
 2. **Backend**: navegue até `backend/` e execute `./mvnw spring-boot:run` (ou equivalente no Windows).
 3. **Frontend**: em `frontend/`, instale dependências (`npm install`) e inicie com `npm run dev`.
 4. A interface ficará disponível em `http://localhost:5173` (padrão Vite) e consumo da API em `http://localhost:3000/tasks`.
