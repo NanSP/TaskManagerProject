@@ -16,6 +16,7 @@ public class TaskController {
     @Autowired
     private TaskRepository repository;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveTask(@RequestBody TaskRequestDTO data){
 
@@ -24,6 +25,7 @@ public class TaskController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<TaskResponseDTO> getAll(){
 
