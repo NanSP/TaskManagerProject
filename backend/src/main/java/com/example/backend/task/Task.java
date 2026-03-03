@@ -20,4 +20,11 @@ public class Task {
     private String descricao;
     private Boolean concluido;
     private Integer project_id;
+
+    public Task(TaskRequestDTO data){
+        this.titulo = data.titulo();
+        this.descricao = data.descricao();
+        this.concluido = data.concluido();
+        this.project_id = data.project_id();
+    }
 }
