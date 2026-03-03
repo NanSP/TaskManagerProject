@@ -1,12 +1,14 @@
 # Task Manager Project
 
-[![Java](https://img.shields.io/badge/Java-21%2B-blue)](https://www.java.com/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1%2B-brightgreen)](https://spring.io/projects/spring-boot)
-[![Maven](https://img.shields.io/badge/Maven-3.8%2B-red)](https://maven.apache.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14%2B-blue)](https://www.postgresql.org/)
-[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
-[![React Query](https://img.shields.io/badge/React%20Query-5.90-orange)](https://tanstack.com/query)
+[![Java](https://img.shields.io/badge/Java-21%2B-blue?style=flat-square&logo=openjdk)](https://www.java.com/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1%2B-brightgreen?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
+[![Maven](https://img.shields.io/badge/Maven-3.8%2B-red?style=flat-square&logo=apache%20maven)](https://maven.apache.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14%2B-blue?style=flat-square&logo=postgresql)](https://www.postgresql.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-4%2B-purple?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![React Query](https://img.shields.io/badge/React%20Query-5.90-orange?style=flat-square&logo=tanstack)](https://tanstack.com/query)
+[![Axios](https://img.shields.io/badge/Axios-1.13-blue?style=flat-square&logo=axios)](https://axios-http.com/)
 
 Este repositório serve como um ambiente de aprendizado para tecnologias modernas de desenvolvimento web, integrando um backend em Java/Spring Boot com um frontend em React/TypeScript.
 
