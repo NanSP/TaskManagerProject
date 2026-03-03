@@ -3,5 +3,5 @@ export interface TaskData {
     titulo: string;
     descricao: string;
     concluido: boolean;
-    projectId: number;
+    project_id: number;
 }

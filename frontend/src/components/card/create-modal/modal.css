@@ -54,12 +54,12 @@
     font-size: 28px;
 }
 
-.modal-overlay .modal-body .input-container .btn-secondary{
+.modal-overlay .modal-body .btn-secondary{
     position: initial;
     border-radius: 18px;
-    width: 100%;
-    margin-top: 25px;
-    padding: 20px;
+    width: 30%;
+    margin-top: 5px;
+    padding: 10px;
 }
 
 .modal-overlay .modal-body .btn-secondary:hover{

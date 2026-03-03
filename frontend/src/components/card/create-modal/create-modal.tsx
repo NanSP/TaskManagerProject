@@ -31,7 +31,7 @@ export function CreateModal() {
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [concluido, setConcluido] = useState(false);
-    const [projectId, setProjectId] = useState(0);
+    const [project_id, setProjectId] = useState(0);
     const { mutate }= useTaskDataMutate();
 
     const submit = () => {
@@ -39,7 +39,7 @@ export function CreateModal() {
             titulo, 
             descricao,
             concluido, 
-            projectId
+            project_id
         }
         mutate(taskData)
     }
@@ -52,9 +52,9 @@ export function CreateModal() {
                     <Input label="titulo" value={titulo} updateValue={setTitulo}></Input>
                     <Input label="descricao" value={descricao} updateValue={setDescricao}></Input>
                     <Input label="concluido" value={concluido} updateValue={setConcluido}></Input>
-                    <Input label="project_id" value={projectId} updateValue={setProjectId}></Input>
+                    <Input label="project_id" value={project_id} updateValue={setProjectId}></Input>
+                    <button onClick={submit} className="btn-secondary">Criar</button>
                 </form>
-                <button onClick={submit} className="btn-secondary">Criar</button>
             </div>
         </div>
     )
