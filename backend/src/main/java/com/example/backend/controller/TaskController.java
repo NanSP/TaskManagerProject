@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("tasks")
@@ -31,5 +32,11 @@ public class TaskController {
 
         List<TaskResponseDTO> taskList = repository.findAll().stream().map(TaskResponseDTO::new).toList();
         return taskList;
+    }
+
+    @GetMapping("/{id}")
+    public List<TaskResponseDTO> getById(@PathVariable(value = "id") Integer id){
+        List<TaskResponseDTO> taskListID = repository.findById(id).stream().map(TaskResponseDTO::new).toList();
+        return  taskListID;
     }
 }
