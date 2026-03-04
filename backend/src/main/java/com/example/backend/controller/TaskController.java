@@ -45,4 +45,14 @@ public class TaskController {
         TaskResponseDTO taskDTO = new TaskResponseDTO(task.get());
         return ResponseEntity.ok(taskDTO);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable(value = "id") Integer id) {
+        Optional<Task> task = repository.findById(id);
+        if (task.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa com ID " + id + " não encontrada");
+        }
+        repository.delete(task.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Task deleted");
+    }
 }
