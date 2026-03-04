@@ -1,4 +1,7 @@
 package com.example.backend.project;
 
-public interface ProjectRepository {
+import com.example.backend.task.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProjectRepository extends JpaRepository<Project, Integer> {
 }
