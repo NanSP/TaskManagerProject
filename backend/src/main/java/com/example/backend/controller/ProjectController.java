@@ -4,6 +4,7 @@ import com.example.backend.project.Project;
 import com.example.backend.project.ProjectRepository;
 import com.example.backend.project.ProjectRequestDTO;
 import com.example.backend.project.ProjectResponseDTO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,8 +47,16 @@ public class ProjectController {
     }
 
     @PutMapping("/{id}")
-    public void updateProject(){
+    public ResponseEntity<?> updateProject(@PathVariable(value = "id") Integer id, @RequestBody ProjectRequestDTO upData){
 
+        Optional<Project> project = repository.findById(id);
+        if(project.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Projeto com ID" + "não encontrado");
+        }
+
+        Project projectModel = project.get();
+        BeanUtils.copyProperties(upData, projectModel);
+        return  ResponseEntity.status(HttpStatus.OK).body(repository.save(projectModel));
     }
 
     @DeleteMapping("/{id}")
