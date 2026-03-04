@@ -20,10 +20,16 @@ public class Project {
     private String descricao;
 
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
+        created_at = LocalDateTime.now();
+    }
+
+    public Project(ProjectRequestDTO data){
+        this.nome = data.nome();
+        this.descricao = data.descricao();
+        this.created_at = data.created_at();
     }
 }
