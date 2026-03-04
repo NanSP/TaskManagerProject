@@ -30,6 +30,5 @@ public class Project {
     public Project(ProjectRequestDTO data){
         this.nome = data.nome();
         this.descricao = data.descricao();
-        this.created_at = data.created_at();
     }
 }

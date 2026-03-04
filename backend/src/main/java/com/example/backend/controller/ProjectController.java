@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.project.Project;
 import com.example.backend.project.ProjectRepository;
+import com.example.backend.project.ProjectRequestDTO;
 import com.example.backend.project.ProjectResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,8 +38,11 @@ public class ProjectController {
     }
 
     @PostMapping
-    public void saveProject(){
+    public void saveProject(@RequestBody ProjectRequestDTO data){
 
+        Project projectData = new Project(data);
+        repository.save(projectData);
+        return;
     }
 
     @PutMapping("/{id}")
