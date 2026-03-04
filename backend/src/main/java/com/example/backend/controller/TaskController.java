@@ -37,6 +37,7 @@ public class TaskController {
         return taskList;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable(value = "id") Integer id) {
         Optional<Task> task = repository.findById(id);
@@ -47,6 +48,7 @@ public class TaskController {
         return ResponseEntity.ok(taskDTO);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTask(@PathVariable(value = "id") Integer id) {
         Optional<Task> task = repository.findById(id);
@@ -57,6 +59,7 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body("Task deleted");
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTask(@PathVariable(value = "id") Integer id, @RequestBody TaskRequestDTO upData) {
         Optional<Task> task = repository.findById(id);

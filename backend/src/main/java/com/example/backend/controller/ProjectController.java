@@ -21,6 +21,7 @@ public class ProjectController {
     @Autowired
     private ProjectRepository repository;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<ProjectResponseDTO> getAll(){
 
@@ -28,6 +29,7 @@ public class ProjectController {
         return projectList;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable(value = "id") Integer id){
 
@@ -39,6 +41,7 @@ public class ProjectController {
         return  ResponseEntity.ok(projectDTO);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveProject(@RequestBody ProjectRequestDTO data){
 
@@ -47,6 +50,7 @@ public class ProjectController {
         return;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
     public ResponseEntity<?> updateProject(@PathVariable(value = "id") Integer id, @RequestBody ProjectRequestDTO upData){
 
@@ -60,6 +64,7 @@ public class ProjectController {
         return  ResponseEntity.status(HttpStatus.OK).body(repository.save(projectModel));
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProject(@PathVariable(value = "id") Integer id){
 
