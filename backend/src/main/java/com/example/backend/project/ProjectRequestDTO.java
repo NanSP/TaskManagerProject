@@ -1,4 +1,6 @@
 package com.example.backend.project;
 
-public record ProjectRequestDTO(String nome, String descricao) {
+import java.time.LocalDateTime;
+
+public record ProjectRequestDTO(String nome, String descricao, LocalDateTime created_at) {
 }
