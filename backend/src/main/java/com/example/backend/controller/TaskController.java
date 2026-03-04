@@ -5,6 +5,8 @@ import com.example.backend.task.TaskRepository;
 import com.example.backend.task.TaskRequestDTO;
 import com.example.backend.task.TaskResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,8 +37,12 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public List<TaskResponseDTO> getById(@PathVariable(value = "id") Integer id){
-        List<TaskResponseDTO> taskListID = repository.findById(id).stream().map(TaskResponseDTO::new).toList();
-        return  taskListID;
+    public ResponseEntity<?> getById(@PathVariable(value = "id") Integer id) {
+        Optional<Task> task = repository.findById(id);
+        if (task.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarefa com ID " + id + " não encontrada");
+        }
+        TaskResponseDTO taskDTO = new TaskResponseDTO(task.get());
+        return ResponseEntity.ok(taskDTO);
     }
 }
