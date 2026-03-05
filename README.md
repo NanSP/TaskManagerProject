@@ -40,10 +40,17 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
 
 ## ✅ Funcionalidades Atuais
 
-- Listagem de tarefas
-- Criação de novas tarefas via modal
-- Sincronização automática de dados com React Query
+- **Tasks**
+  - Listagem de todas as tarefas
+  - Criação de novas tarefas via modal
+  - Atualização e exclusão de tarefas (API já disponível)
+  - Sincronização automática de dados com React Query
 
+- **Projects**
+  - Listagem de projetos existentes
+  - Criação, edição e exclusão de projetos através da API
+
+O backend expõe endpoints REST completos para `tasks` e `projects`, permitindo um CRUD total; o frontend consome atualmente apenas parte dessas rotas.
 ## 🔧 Possíveis Melhorias
 
 O backend já oferece CRUD completo para **tasks** e **projects** (GET/POST/PUT/DELETE), portanto o frontend pode ser atualizado para consumir todas essas rotas. Com base na análise da pasta `backend/`, outras oportunidades de evolução incluem:
