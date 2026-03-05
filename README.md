@@ -46,12 +46,46 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
 
 ## 🔧 Possíveis Melhorias
 
-1. **Completar CRUD**: adicionar endpoints `PUT/PATCH` e `DELETE`, e correspondente UI.
-2. **Validação e tratamento de erros**: implementar validações no backend (`@Valid`) e mensagens amigáveis no frontend.
-3. **Gerenciamento de projetos**: criar APIs/Interfaces para lidar com a entidade `project` já presente no banco.
-4. **Segurança**: restringir CORS, usar variáveis de ambiente para senhas e adicionar autenticação.
-5. **Testes**: incluir testes de unidade e integração no backend e frontend.
-6. **UX/UI**: aprimorar o formulário, adicionar filtros/paginação e feedback de carregamento.
+O backend já oferece CRUD completo para **tasks** e **projects** (GET/POST/PUT/DELETE), portanto o frontend pode ser atualizado para consumir todas essas rotas. Com base na análise da pasta `backend/`, outras oportunidades de evolução incluem:
+
+1. **Arquitetura e manutenção do backend**
+   - Introduzir uma camada de *service* para separar lógica de negócio dos controllers.
+   - Utilizar relacionamentos JPA (`@ManyToOne`/`@OneToMany`) entre `Task` e `Project` em vez de um campo `project_id` simples.
+   - Empregar mapeadores dedicados (`MapStruct` ou similar) em vez de `BeanUtils.copyProperties`.
+   - Adicionar campos de auditoria (`created_at`, `updated_at`, etc.) e considerar UUIDs ou enums para status.
+   - Melhorar as migrações Flyway (schema e dados de seed) com mais casos de teste.
+
+2. **Validação e tratamento de erros**
+   - Anotar DTOs com `@Valid`, `@NotNull`, `@Size` e retornar mensagens padronizadas.
+   - Implementar um `@ControllerAdvice` global para capturar exceções e definir respostas JSON consistentes.
+
+3. **Segurança & configuração**
+   - Configurar CORS de forma granular ou via propriedades com perfis Spring (`dev`/`prod`).
+   - Externalizar credenciais e URLs em variáveis de ambiente ou `application-*.yml`.
+   - Adicionar autenticação/autorização (JWT, OAuth2, basic auth) e possivelmente usuários/roles.
+   - Preparar perfis de produção com logs e monitoramento.
+
+4. **Testes e qualidade**
+   - Criar testes unitários para repositórios, serviços e controllers.
+   - Escrever testes de integração (`@SpringBootTest`) com banco de dados em memória (H2).
+   - Configurar análise estática (SpotBugs, SonarLint) e linters para Java.
+
+5. **Documentação & Deploy**
+   - Incluir OpenAPI/Swagger para documentação automática da API.
+   - Dockerizar o backend e incluir `docker-compose` com PostgreSQL.
+   - Adicionar pipelines CI/CD (ex.: GitHub Actions) para build/test/deploy.
+
+6. **Frontend**
+   - Consumir endpoints de **projetos** e oferecer CRUD completo na UI.
+   - Implementar filtros, paginação, estados de carregamento e feedback de erro.
+   - Validar formulários e informar o usuário sobre campos obrigatórios.
+
+7. **Outras melhorias gerais**
+   - Melhorar logging, adicionar endpoints de health/readiness e métricas.
+   - Internacionalização (i18n) e acessibilidade (a11y) na interface.
+   - Otimizações de desempenho, caching e índices no banco de dados.
+
+Essas sugestões surgem após examinar os códigos em `backend/src/main/java` e servem como roadmap para evoluir a aplicação além do estado atual de aprendizado.
 
 ## 📚 Propósito
 
