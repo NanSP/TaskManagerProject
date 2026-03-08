@@ -1,4 +1,8 @@
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import './App.css'
+import Home from './pages/home/home.tsx'; 
+import About from './pages/about/about.tsx';
+import Task from './pages/tasks/tasks.tsx';
 import { useTaskData } from './hooks/useTaskData';
 import { Card } from './components/card/card';
 import { useState } from 'react';
@@ -15,6 +19,13 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/tasks' element={<Task />} />
+      </Routes>
+    </BrowserRouter>
       <div className="container">
         <h1>Task Manager</h1>
         <div className="task-grid">
