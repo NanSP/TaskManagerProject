@@ -8,27 +8,52 @@ function Header() {
   let location = useLocation();
 
   function Button() {
-    if (location.pathname !== "/about") {
+    if (location.pathname === "/") {
       return (
-        <button
-          className="credits"
-          onClick={() => {
-            navigate("/about");
-          }}
-        >
-          Sobre
-        </button>
+        <>
+          <button
+            className="credits"
+            onClick={() => {
+              navigate("/about");
+            }}
+          >
+            Sobre
+          </button>
+        </>
       );
-    } else if (location.pathname == "/about") {
+    } else if (location.pathname === "/about") {
       return (
-        <button
-          className="credits"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Voltar
-        </button>
+        <>
+          <button
+            className="credits"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Voltar
+          </button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <button
+            className="credits"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Voltar
+          </button>
+          <button
+            className="credits"
+            onClick={() => {
+              navigate("/about");
+            }}
+          >
+            Sobre
+          </button>
+        </>
       );
     }
   }
