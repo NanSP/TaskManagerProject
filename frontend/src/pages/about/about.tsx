@@ -1,11 +1,12 @@
 //import './about.css';
+import Header from "../../components/header/header";
 
 function About() {
   return (
-    <div>
-      <h1>About</h1>
-    </div>
-  )
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default About;

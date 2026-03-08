@@ -1,11 +1,13 @@
 //import './task.css';
 
+import Header from "../../components/header/header";
+
 function Task() {
   return (
-    <div>
-      <h1>Task</h1>
-    </div>
-  )
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default Task;

@@ -1,11 +1,12 @@
+import Header from "../../components/header/header";
 //import './home.css';
 
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default Home;
