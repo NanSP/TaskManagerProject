@@ -14,9 +14,14 @@ function Home() {
           features and information about our services. Feel free to explore and
           enjoy your stay!
         </p>
-        <button className="task-button" onClick={() => navigate("/tasks")}>
-          Tasks
-        </button>
+        <div className="route-conteiner">
+          <button className="task-button" onClick={() => navigate("/tasks")}>
+            Tasks
+          </button>
+          <button className="task-button" onClick={() => navigate("/projects")}>
+            Projects
+          </button>
+        </div>
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/home/home.tsx";
 import About from "./pages/about/about.tsx";
 import Task from "./pages/tasks/tasks.tsx";
+import Projects from "./pages/projects/projects.tsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/tasks" element={<Task />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
       </BrowserRouter>
     </>
