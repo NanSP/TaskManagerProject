@@ -1,4 +1,4 @@
-//import './task.css';
+import "./tasks.css";
 import Header from "../../components/header/header";
 import { useTaskData } from "../../hooks/useTaskData";
 import { Card } from "../../components/card/card";
@@ -17,7 +17,9 @@ function Task() {
     <>
       <Header></Header>
       <div className="container">
-        <h1>Task Manager</h1>
+        <h1>
+          <b>Task Manager</b>
+        </h1>
         <div className="task-grid">
           {data?.map((taskData) => (
             <Card

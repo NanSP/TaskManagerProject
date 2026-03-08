@@ -8,7 +8,7 @@ function Header() {
   let location = useLocation();
 
   function Button() {
-    if (location.pathname === "/") {
+    if (location.pathname !== "/about") {
       return (
         <button
           className="credits"
@@ -19,7 +19,7 @@ function Header() {
           Sobre
         </button>
       );
-    } else if (location.pathname === "/about") {
+    } else if (location.pathname == "/about") {
       return (
         <button
           className="credits"
@@ -36,9 +36,7 @@ function Header() {
   return (
     <>
       <header className="header">
-        <div className="author">
-          <Button />
-        </div>
+        <div className="author">{<Button />}</div>
       </header>
     </>
   );

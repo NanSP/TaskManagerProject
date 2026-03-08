@@ -3,3 +3,38 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.container button {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  bottom: 16px;
+  right: 24px;
+  transition: all 0.1s linear 0.1s;
+}
+
+.container button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transform: scale(1.1);
+}
