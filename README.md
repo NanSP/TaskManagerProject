@@ -17,7 +17,7 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
 - `backend/`: aplicação Spring Boot
   - API REST com JPA/Hibernate e PostgreSQL
   - Flyway para migrações de banco de dados
-  - Endpoint principal: `/tasks` (POST e GET)
+  - Endpoints principais: `/tasks` e `/projects` (CRUD completo)
 
 - `frontend/`: aplicação React usando Vite
   - TypeScript + React Query + Axios para consumir a API
@@ -26,17 +26,39 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
 
 ## ⚙️ Tecnologias Utilizadas
 
-| Camada | Tecnologias | Observações |
-|--------|-------------|-------------|
-| Backend | Java 21, Spring Boot, Spring Data JPA, Flyway, PostgreSQL, Maven | Projeto Maven configurado para perfil `dev` com conexão local; aprende-se a estruturar builds e dependências via Maven |
-| Frontend | React 19, TypeScript, Vite, React Query, Axios | Linters configurados (ESLint), foco em hooks e componentes funcionais |
+| Camada   | Tecnologias                                                      | Observações                                                                                                            |
+| -------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Backend  | Java 21, Spring Boot, Spring Data JPA, Flyway, PostgreSQL, Maven | Projeto Maven configurado para perfil `dev` com conexão local; aprende-se a estruturar builds e dependências via Maven |
+| Frontend | React 19, TypeScript, Vite, React Query, Axios                   | Linters configurados (ESLint), foco em hooks e componentes funcionais                                                  |
 
 ## 🚀 Executando o Projeto
 
 1. **Banco de dados**: crie um banco PostgreSQL `db_taskmanager` (PostgreSQL 14+); as migrações de esquema e dados ficam em `backend/src/main/resources/db/migration/` e as credenciais são ajustadas em `backend/src/main/resources/application-dev.properties`.
 2. **Backend**: navegue até `backend/` e execute `./mvnw spring-boot:run` (ou equivalente no Windows).
 3. **Frontend**: em `frontend/`, instale dependências (`npm install`) e inicie com `npm run dev`.
-4. A interface ficará disponível em `http://localhost:5173` (padrão Vite) e consumo da API em `http://localhost:3000/tasks`.
+4. A interface ficará disponível em `http://localhost:5173` (padrão Vite) e consumo da API em `http://localhost:3000` (verifique a constante `API_URL` nos hooks do frontend).
+
+> **Dica:** se preferir configurar outro endereço, uma variável `REACT_APP_API_URL` pode ser usada no `.env` e nos hooks.
+
+## 📡 Endpoints REST
+
+```bash
+# listar tarefas
+curl http://localhost:3000/tasks
+
+# criar tarefa
+curl -X POST http://localhost:3000/tasks \
+  -H 'Content-Type: application/json' \
+  -d '{"titulo":"comprar leite","descricao":"supermercado","concluida":false}'
+
+# atualizar
+curl -X PUT http://localhost:3000/tasks/1 -d '{"titulo":"..."}' -H 'Content-Type: application/json'
+
+# excluir
+curl -X DELETE http://localhost:3000/tasks/1
+```
+
+Os mesmos verbos (GET/POST/PUT/DELETE) também existem em `/projects`.
 
 ## ✅ Funcionalidades Atuais
 
@@ -51,12 +73,13 @@ Este repositório serve como um ambiente de aprendizado para tecnologias moderna
   - Criação, edição e exclusão de projetos através da API
 
 O backend expõe endpoints REST completos para `tasks` e `projects`, permitindo um CRUD total; o frontend consome atualmente apenas parte dessas rotas.
+
 ## 🔧 Possíveis Melhorias
 
 O backend já oferece CRUD completo para **tasks** e **projects** (GET/POST/PUT/DELETE), portanto o frontend pode ser atualizado para consumir todas essas rotas. Com base na análise da pasta `backend/`, outras oportunidades de evolução incluem:
 
 1. **Arquitetura e manutenção do backend**
-   - Introduzir uma camada de *service* para separar lógica de negócio dos controllers.
+   - Introduzir uma camada de _service_ para separar lógica de negócio dos controllers.
    - Utilizar relacionamentos JPA (`@ManyToOne`/`@OneToMany`) entre `Task` e `Project` em vez de um campo `project_id` simples.
    - Empregar mapeadores dedicados (`MapStruct` ou similar) em vez de `BeanUtils.copyProperties`.
    - Adicionar campos de auditoria (`created_at`, `updated_at`, etc.) e considerar UUIDs ou enums para status.
@@ -97,8 +120,8 @@ Essas sugestões surgem após examinar os códigos em `backend/src/main/java` e 
 ## 📚 Propósito
 
 O objetivo deste repositório não é um produto final, mas sim um espaço para experimentar e aprender:
+
 - padrões REST com Spring Boot
 - migrações de banco com Flyway
 - hooks e gerenciamento de estado em React
 - tipagem com TypeScript
-
