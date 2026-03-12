@@ -34,6 +34,7 @@ export function CreateModal({ closeModal }: ModalProps) {
     const projectData: ProjectData = {
       nome,
       descricao,
+      created_at: new Date().toISOString(),
     };
     mutate(projectData);
   };

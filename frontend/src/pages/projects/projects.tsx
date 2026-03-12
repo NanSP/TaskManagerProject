@@ -2,9 +2,17 @@ import "./projects.css";
 import Header from "../../components/header/header";
 import { useProjectData } from "../../hooks/useProjectData";
 import { ProjCard } from "../../components/projCard/projCard";
+import { CreateModal } from "../../components/card/create-modal/create-modalProj";
+import { useState } from "react";
 
 function Projects() {
   const { data } = useProjectData();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   return (
     <>
       <Header></Header>
@@ -18,6 +26,8 @@ function Projects() {
             />
           ))}
         </div>
+        {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
+        <button onClick={handleOpenModal}>Criar novo projeto</button>
       </div>
     </>
   );

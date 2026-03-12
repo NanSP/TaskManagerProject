@@ -1,4 +1,4 @@
-//import "./projCard.css";
+import "./projCard.css";
 
 interface ProjCardProps {
   nome: string;
